@@ -96,6 +96,7 @@ Create SQL queries to uncover insights about:
 ---
 
 ## 📂 Repository Structure
+\`\`\`
 data-warehouse-project/
 │
 ├── datasets/                      # Raw CSV datasets (ERP & CRM)
@@ -116,7 +117,7 @@ data-warehouse-project/
 │
 ├── README.md                      # Project overview (this file)
 └── .gitignore
-
+\`\`\`
 ---
 
 ##  Example Analytical Questions
