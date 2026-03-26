@@ -1,16 +1,16 @@
 # SQL-Data-Warehouse-Project
 Building a modern data warehouse with PostgreSQL, including ETL Processes, data modeling, and analytics
 
-# 📊 SQL Data Warehouse & Analytics Project (PostgreSQL)
+#  SQL Data Warehouse & Analytics Project (PostgreSQL)
 
-Welcome to my **SQL Data Warehouse & Analytics Project**! 🚀  
+Welcome to my **SQL Data Warehouse & Analytics Project**!   
 This project is part of my data engineering and analytics learning journey, where I built a complete PostgreSQL-based data warehouse following a guided tutorial.
 
 It demonstrates modern data warehousing practices including data ingestion, ETL pipelines, Medallion Architecture, star schema modeling, and analytical SQL reporting.
 
 ---
 
-## 🏗️ Data Architecture (Medallion)
+##  Data Architecture (Medallion)
 
 This project follows the **Medallion Architecture**, consisting of:
 
@@ -31,7 +31,7 @@ This project follows the **Medallion Architecture**, consisting of:
 
 ---
 
-## 📖 Project Overview
+##  Project Overview
 
 This project implements the full lifecycle of a modern data warehouse:
 
@@ -40,7 +40,7 @@ This project implements the full lifecycle of a modern data warehouse:
 3. **Data Modeling** (Star Schema)  
 4. **Analytics & Reporting** using SQL  
 
-### 🎯 Skills Demonstrated
+###  Skills Demonstrated
 - PostgreSQL Development  
 - Data Engineering  
 - ETL Pipeline Design  
@@ -59,7 +59,7 @@ This project implements the full lifecycle of a modern data warehouse:
 
 ---
 
-## 🚀 Project Requirements
+##  Project Requirements
 
 ### 🔧 1. Data Engineering – Build the Data Warehouse
 
@@ -98,29 +98,28 @@ Create SQL queries to uncover insights about:
 ## 📂 Repository Structure
 data-warehouse-project/
 │
-├── datasets/ # Raw CSV datasets (ERP & CRM)
+├── datasets/                      # Raw CSV datasets (ERP & CRM)
 │
-├── docs/ # Documentation & diagrams
-│ ├── data_architecture.drawio
-│ ├── data_flow.drawio
-│ ├── data_models.drawio
-│ ├── data_catalog.md
-│ ├── naming-conventions.md
+├── docs/                          # Documentation & diagrams
+│   ├── data_architecture.drawio
+│   ├── data_flow.drawio
+│   ├── data_models.drawio
+│   ├── data_catalog.md
+│   ├── naming-conventions.md
 │
-├── scripts/ # PostgreSQL ETL scripts
-│ ├── bronze/
-│ ├── silver/
-│ ├── gold/
+├── scripts/                       # PostgreSQL ETL scripts
+│   ├── bronze/
+│   ├── silver/
+│   ├── gold/
 │
-├── tests/ # Data quality checks
+├── tests/                         # Data quality checks
 │
-├── README.md # Project overview (this file)
+├── README.md                      # Project overview (this file)
 └── .gitignore
-
 
 ---
 
-## 📊 Example Analytical Questions
+##  Example Analytical Questions
 
 - Which products generate the highest sales revenue?  
 - Which customers contribute the most revenue?  
