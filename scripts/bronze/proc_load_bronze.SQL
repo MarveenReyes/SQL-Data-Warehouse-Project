@@ -6,10 +6,22 @@
 -- ===========================================================
 -- Purpose:
 --   This procedure loads raw CSV data into the Bronze layer tables
---   in the data warehouse. It tracks the number of rows loaded and
---   the duration per table for monitoring performance. CRM and ERP
---   source tables are clearly separated, and any errors are captured
---   with a notice for debugging.
+--   in the data warehouse. The Bronze layer stores minimally processed
+--   data directly from source systems (CRM and ERP).
+--
+-- How it works:
+--   1. Uses a single try/catch block to capture any errors during execution.
+--   2. Tracks start and end timestamps per table to measure load duration.
+--   3. For each table:
+--        - Truncates the table (removes existing data).
+--        - Loads data from a CSV file using the COPY command.
+--        - Counts the number of rows inserted.
+--        - Calculates and displays load duration in seconds.
+--        - Displays a notice with the source system (CRM/ERP), table name,
+--          row count, and duration.
+--   4. After all tables are loaded, displays a summary notice with total
+--      Bronze layer load duration.
+--   5. If any error occurs, displays a notice with the error message.
 -- ===========================================================
 
 CREATE OR REPLACE PROCEDURE bronze.load_bronze()
@@ -27,14 +39,14 @@ BEGIN
 
     -- Single try/catch block for the entire procedure
     BEGIN
-        bronze_start_time := clock_timestamp();
+        bronze_start_time := clock_timestamp();  -- start timestamp for entire Bronze layer
 
         -- =============================
         -- CRM SOURCE TABLES
         -- =============================
 
         -- Load crm_cust_info
-        start_time := clock_timestamp();
+        start_time := clock_timestamp();  -- start timestamp for this table
         TRUNCATE TABLE bronze.crm_cust_info;
         COPY bronze.crm_cust_info(
             cst_id, cst_key, cst_firstname, cst_lastname,
@@ -43,7 +55,7 @@ BEGIN
         FROM 'C:/IBS 6/IBS6 Project/Baraa SQL Warehouse Proj/sql-data-warehouse-project-main/datasets/source_crm/cust_info.csv'
         DELIMITER ',' CSV HEADER NULL '';
         SELECT COUNT(*) INTO row_count FROM bronze.crm_cust_info;
-        end_time := clock_timestamp();
+        end_time := clock_timestamp();  -- end timestamp for this table
         duration := end_time - start_time;
         RAISE NOTICE '=== CRM: bronze.crm_cust_info finished (% rows) in % seconds ===', row_count, EXTRACT(EPOCH FROM duration);
 
