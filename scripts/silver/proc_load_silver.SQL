@@ -1,8 +1,30 @@
 -- ======================================================
 -- Silver Layer ETL Script (Cleaned)
--- Purpose: Transform and load data from Bronze layer to Silver layer
+-- Purpose: Transform and load data from Bronze to Silver schema
 -- ======================================================
-
+-- Description:
+-- This script moves raw data from Bronze tables into Silver tables, 
+-- applying cleaning, standardization, and deduplication to make the data 
+-- analysis-ready. It handles CRM and ERP datasets.
+--
+-- Key Transformations:
+-- CRM Customer: trim names, standardize gender/marital status, deduplicate by cst_id
+-- CRM Product: clean product keys, default missing costs, standardize product lines, calculate end dates
+-- CRM Sales: convert integer dates to DATE, fix missing/inconsistent sales and price
+-- ERP Customer: clean CID, fix invalid birthdates, standardize gender
+-- ERP Location: clean CID, standardize country names, handle missing values
+-- ERP Product Category: load as-is from Bronze
+--
+-- How It Works:
+-- - Truncates Silver tables before insert
+-- - Uses SQL functions like TRIM, UPPER, COALESCE, CASE, LEAD, ROW_NUMBER
+-- - Ensures cleaned, deduplicated, and standardized data
+--
+-- Notes:
+-- - Bronze tables must be preloaded
+-- - Safe to rerun as Silver tables are truncated first
+-- - Invalid dates or missing values are handled automatically
+-- ======================================================
 CREATE OR REPLACE PROCEDURE silver.load_silver()
 LANGUAGE plpgsql
 AS $$
