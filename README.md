@@ -141,3 +141,10 @@ I created this project to strengthen my skills in:
 
 While I followed a guided tutorial, all SQL scripts, transformations, documentation, and modeling were implemented by me to simulate real-world workflows.
 
+🙋 About Me
+
+Hi, I'm Marveen Renard Reyes, an International Business Information Systems student with a growing interest in data analytics and data engineering.
+I'm still learning, but I really enjoy exploring how data works — from small transformations to building simple end-to-end data pipelines.
+
+This project is part of my journey to improve my skills in SQL, ETL processes, and data modeling as I work toward future opportunities in analytics and data engineering.
+Feel free to reach out if you'd like to connect, collaborate, or share knowledge — I’m always happy to learn from others!
